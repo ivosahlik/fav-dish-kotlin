@@ -1,4 +1,4 @@
-package cz.ivosahlik.fav_dish
+package cz.ivosahlik.fav_dish.view.activities
 
 import android.content.Intent
 import android.os.Build
@@ -10,6 +10,7 @@ import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
+import cz.ivosahlik.fav_dish.R
 import cz.ivosahlik.fav_dish.databinding.ActivitySplashBinding
 
 class SplashActivity: AppCompatActivity() {
