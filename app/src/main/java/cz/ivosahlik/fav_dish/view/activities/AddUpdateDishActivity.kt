@@ -1,10 +1,13 @@
 package cz.ivosahlik.fav_dish.view.activities
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import cz.ivosahlik.fav_dish.R
 import cz.ivosahlik.fav_dish.databinding.ActivityAddUpdateDishBinding
 
-class AddUpdateDishActivity : AppCompatActivity() {
+class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var mBinding: ActivityAddUpdateDishBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -13,16 +16,24 @@ class AddUpdateDishActivity : AppCompatActivity() {
         setContentView(mBinding.root)
 
         setupActionBar()
+
+        mBinding.ivAddDishImage.setOnClickListener(this)
     }
 
-    /**
-     * A function for ActionBar setup.
-     */
     private fun setupActionBar() {
         setSupportActionBar(mBinding.toolbarAddDishActivity)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         mBinding.toolbarAddDishActivity.setNavigationOnClickListener { onBackPressed() }
     }
 
+    override fun onClick(v: View?) {
+        if (v != null) {
+            when (v.id) {
+                R.id.iv_add_dish_image -> {
+                    Toast.makeText(this@AddUpdateDishActivity, "You have clicked the ImageView", Toast.LENGTH_SHORT).show()
+                    return
+                }
+            }
+        }
+    }
 }
